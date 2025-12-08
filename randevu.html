@@ -35,11 +35,11 @@
 
         /* --- HEADER --- */
         header { 
-            background: rgba(10, 35, 81, 0.85);
+            background: rgba(10, 35, 81, 0.95); /* Arkası görünsün diye hafif şeffaf */
             padding: 1rem 0; 
             color: white; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-            position: sticky; top: 0; z-index: 1000;
+            position: sticky; top: 0; z-index: 1000; /* Menü hep üstte */
             backdrop-filter: blur(5px);
         }
         .container { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
@@ -73,7 +73,7 @@
         .main-content {
             flex: 1;
             display: flex;
-            align-items: center;
+            align-items: center; /* Dikey ortalama */
             justify-content: center;
             padding: 40px 20px;
         }
@@ -132,13 +132,14 @@
 
         footer { background: #111; color: #aaa; padding: 20px 0; text-align: center; font-size: 0.9rem; border-top: 1px solid #333; }
 
-        /* MOBİL UYUMLULUK */
+        /* --- MOBİL UYUMLULUK DÜZELTMESİ --- */
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
             .container { flex-wrap: wrap; }
             
             .brand-title { font-size: 0.9rem; margin-left: auto; text-align: right; width: 80%; }
 
+            /* Menü Ayarları */
             nav ul {
                 display: flex; flex-direction: column; width: 100%; text-align: center; margin-top: 15px;
                 background: var(--primary); padding-bottom: 20px;
@@ -149,7 +150,15 @@
             nav ul.active { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
             nav ul li { margin: 10px 0; }
             
-            .form-box { padding: 30px 20px; }
+            /* DÜZELTME BURADA: Form Kutusunu Aşağı İtiyoruz */
+            .main-content {
+                align-items: flex-start; /* Ortalamayı iptal et, yukarıdan başlasın */
+                padding-top: 20px;
+            }
+            .form-box { 
+                margin-top: 60px; /* Header'ın altından kurtarmak için yukarıdan boşluk */
+                padding: 30px 20px; 
+            }
         }
     </style>
 </head>
