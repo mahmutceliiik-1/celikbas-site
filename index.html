@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çelikbaş Pompa Enjektör Servisi | Anasayfa</title>
+    <style>
+        /* GENEL AYARLAR */
+        :root {
+            --primary: #0d47a1; /* Koyu Mavi */
+            --accent: #ffd700;  /* Altın Sarısı */
+            --dark: #333;
+            --light: #f4f4f4;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; color: var(--dark); }
+        
+        /* HEADER & NAV */
+        header { background: var(--primary); color: #fff; padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .container { width: 85%; max-width: 1200px; margin: auto; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo h2 { margin: 0; font-size: 1.5rem; }
+        nav ul { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+        .btn-randevu { background: var(--accent); color: #000; padding: 8px 15px; border-radius: 5px; }
+
+        /* HERO (GİRİŞ) BÖLÜMÜ */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            height: 85vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        #hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px #000; }
+        #hero p { font-size: 1.4rem; margin-bottom: 30px; }
+        .cta-btn { background: var(--accent); color: #000; padding: 15px 40px; text-decoration: none; font-weight: bold; font-size: 1.2rem; border-radius: 5px; transition: 0.3s; }
+        .cta-btn:hover { background: #e6c200; transform: scale(1.05); }
+
+        /* HİZMETLER BÖLÜMÜ */
+        #hizmetler { padding: 80px 0; background: #fff; text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); position: relative; display: inline-block; }
+        .section-title::after { content:''; display: block; width: 60px; height: 3px; background: var(--accent); margin: 10px auto 0; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--light); padding: 30px; border-radius: 8px; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-bottom: 4px solid var(--primary); }
+        .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+
+        /* GALERİ (FOTOĞRAFLAR) BÖLÜMÜ */
+        #galeri { padding: 80px 0; background: var(--light); text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 30px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; height: 250px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        /* FOOTER */
+        footer { background: #222; color: #fff; padding: 40px 0; text-align: center; border-top: 5px solid var(--accent); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <h2>ÇELİKBAŞ POMPA</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Anasayfa</a></li>
+                    <li><a href="#hizmetler">Hizmetler</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="randevu.html" class="btn-randevu">Randevu Al</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>GÜVENİLİR DİZEL ÇÖZÜMLERİ</h1>
+            <p>Enjektör Testi, Pompa Tamiri ve Yedek Parça Hizmetlerinde Profesyonel Adres.</p>
+            <a href="randevu.html" class="cta-btn">SERVİS RANDEVUSU OLUŞTUR</a>
+        </div>
+    </section>
+
+    <section id="hizmetler">
+        <div class="container">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="icon">🔧</span>
+                    <h3>Enjektör Tamiri</h3>
+                    <p>Bosch, Delphi ve Siemens marka enjektörlerin bilgisayarlı test ve onarımı.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">⚙️</span>
+                    <h3>Pompa Revizyonu</h3>
+                    <p>Dizel pompalarınızın fabrika standartlarına göre ayarlanması ve bakımı.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">💻</span>
+                    <h3>Arıza Tespiti</h3>
+                    <p>Son teknoloji cihazlarla araç arızalarının nokta atışı tespiti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri">
+        <div class="container">
+            <h2 class="section-title">Servisimizden Kareler</h2>
+            <p>Sultanbeyli'deki servisimizde profesyonel ekipmanlarla hizmetinizdeyiz.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Servis İçi">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1597762696017-d7162624d77d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Tamir İşlemi">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Yedek Parça">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Servis Dış Cephe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Çelikbaş Pompa Enjektör Servisi</h3>
+            <p>Adres: Akşemsettin Mah. 2. Sok. 9 Sim San. Sit. Sultanbeyli/İstanbul</p>
+            <p>Telefon: 05XX XXX XX XX</p>
+            <p style="margin-top:20px; font-size: 0.9rem; color: #aaa;">&copy; 2025 Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
