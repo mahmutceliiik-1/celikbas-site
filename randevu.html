@@ -2,16 +2,22 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Randevu Al | Çelikbaş Pompa</title>
     <style>
-        /* Ortak CSS buraya da eklendi */
+        /* ORTAK CSS */
         body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        header { background: #0d47a1; color: #fff; padding: 1rem 0; }
-        .container { width: 85%; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-        nav ul { list-style: none; display: flex; gap: 20px; padding: 0; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; }
+        header { background: #0d47a1; color: #fff; padding: 1rem 0; position: relative; z-index: 1000; }
+        .container { width: 85%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Form Özel CSS */
+        nav ul { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; }
+
+        /* HAMBURGER MENÜ İKONU */
+        .menu-toggle { display: none; cursor: pointer; }
+        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: 0.3s; }
+
+        /* FORM KUTUSU */
         .form-box {
             background: #fff;
             max-width: 500px;
@@ -25,17 +31,54 @@
         input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
         button { width: 100%; padding: 10px; background: #0d47a1; color: white; border: none; font-size: 1.1rem; cursor: pointer; border-radius: 4px; }
         button:hover { background: #082d66; }
+
+        /* MOBİL UYUMLULUK */
+        @media screen and (max-width: 768px) {
+            .menu-toggle { display: block; }
+
+            /* Menü Açılır/Kapanır Yapı */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                width: 100%;
+                background-color: #0d47a1;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { margin: 15px 0; }
+
+            /* Form Mobilde Genişlesin */
+            .form-box {
+                width: 90%;
+                margin: 20px auto;
+                padding: 20px;
+            }
+            h3 { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
             <h3>ÇELİKBAŞ POMPA ENJEKTÖR</h3>
-            <nav>
+
+            <nav class="nav-container">
                 <ul>
                     <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="hizmetler.html">Hizmetler</a></li>
+                    <li><a href="index.html#hizmetler">Hizmetler</a></li>
                     <li><a href="randevu.html">Randevu Al</a></li>
                 </ul>
             </nav>
@@ -71,10 +114,16 @@
     </div>
 
     <script>
+        const menuBtn = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-container ul');
+
+        menuBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
         document.getElementById("appointmentForm").addEventListener("submit", function(e){
             e.preventDefault();
             alert("Randevunuz sisteme kaydedilmiştir. Teşekkürler!");
-            // Rapor notu: Burası C# tarafındaki RandevuController'a POST işlemi yapar.
         });
     </script>
 
