@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Çelikbaş Pompa Enjektör Servisi</title>
+    <title>Çelikbaş Pompa Enjektör Servisi | Anasayfa</title>
     <style>
         /* --- MODERN DEĞİŞKENLER --- */
         :root {
@@ -37,9 +37,15 @@
         .container { width: 90%; max-width: 1200px; margin: auto; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
-        .logo h2 { margin: 0; color: var(--white); font-size: 1.4rem; font-weight: 700; letter-spacing: 0.5px; }
+        /* LOGO */
+        .logo h2 { 
+            margin: 0; color: var(--white); 
+            font-size: 1.3rem; 
+            font-weight: 700; letter-spacing: 0.5px; 
+            text-transform: uppercase;
+        }
 
-        /* NAVİGASYON (MASAÜSTÜ) */
+        /* NAVİGASYON */
         nav ul { list-style: none; display: flex; align-items: center; gap: 30px; padding: 0; margin: 0; }
         
         nav a.nav-link { 
@@ -103,33 +109,19 @@
         /* MOBİL UYUMLULUK */
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
-            .logo h2 { font-size: 1.2rem; margin-left: auto; }
+            .logo h2 { font-size: 0.95rem; margin-left: auto; text-align: right; }
             
             .nav-container ul {
-                /* GİZLİ DURUM (ANIMASYONLU) */
-                display: flex; /* Display none yerine flex kalsın */
-                flex-direction: column; 
-                position: absolute;
-                top: 70px; left: 0; width: 100%; 
-                background: var(--primary);
-                padding: 20px 0; 
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                display: flex; flex-direction: column; position: absolute;
+                top: 70px; left: 0; width: 100%; background: var(--primary);
+                padding: 20px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
                 border-top: 1px solid rgba(255,255,255,0.1);
-                
-                /* Kapanış Animasyonu Ayarları */
-                opacity: 0;                 /* Görünmez */
-                visibility: hidden;         /* Tıklanmaz */
-                transform: translateY(-20px); /* Yukarıda */
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Yumuşak Geçiş */
-                pointer-events: none;       /* Kapalıyken tıklamayı engelle */
+                opacity: 0; visibility: hidden; transform: translateY(-20px);
+                transition: all 0.5s ease; pointer-events: none;
             }
 
-            /* AÇIK DURUM */
             .nav-container ul.active { 
-                opacity: 1; 
-                visibility: visible; 
-                transform: translateY(0);
-                pointer-events: auto; /* Tıklamayı aç */
+                opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; 
             }
 
             nav ul li { width: 100%; text-align: center; margin: 10px 0; }
@@ -153,7 +145,7 @@
             </div>
 
             <div class="logo">
-                <h2>ÇELİKBAŞ POMPA</h2>
+                <h2>ÇELİKBAŞ POMPA ENJEKTÖR SERVİSİ</h2>
             </div>
             
             <nav class="nav-container">
@@ -235,12 +227,12 @@
             }
         });
 
-        // Linke tıklayınca GECİKMELİ kapat
+        // Linke tıklayınca GECİKMELİ (500ms) kapat
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 setTimeout(() => {
                     navList.classList.remove('active');
-                }, 550); // 0.8 saniye bekle, sonra yumuşakça kapat
+                }, 500); // 0.5 Saniye Bekle
             });
         });
     </script>
