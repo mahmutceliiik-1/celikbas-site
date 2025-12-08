@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; padding: 0; 
             background: var(--bg);
-            animation: fadeIn 0.8s ease-out; /* Sayfa açılış efekti */
+            animation: fadeIn 0.8s ease-out;
         }
 
         @keyframes fadeIn {
@@ -31,35 +31,23 @@
         /* NAV & BUTONLAR */
         nav ul { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
         nav a { 
-            color: rgba(255,255,255,0.8); 
-            text-decoration: none; 
-            font-weight: 500; 
-            transition: 0.3s; 
-            position: relative;
+            color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; transition: 0.3s; position: relative;
         }
         nav a:hover { color: var(--accent); }
         
         .btn-home {
-            background: rgba(255,255,255,0.1);
-            padding: 8px 20px;
-            border-radius: 50px;
-            color: white;
+            background: rgba(255,255,255,0.1); padding: 8px 20px; border-radius: 50px; color: white;
         }
         .btn-home:hover { background: rgba(255,255,255,0.2); }
 
         /* HAMBURGER */
-        .menu-toggle { display: none; cursor: pointer; }
+        .menu-toggle { display: none; cursor: pointer; padding: 5px; }
         .bar { display: block; width: 26px; height: 3px; margin: 5px 0; background-color: white; border-radius: 3px; }
 
-        /* MODERN FORM KUTUSU */
+        /* FORM KUTUSU */
         .form-box {
-            background: var(--white);
-            max-width: 500px;
-            margin: 60px auto;
-            padding: 40px;
-            border-radius: 20px; /* Yuvarlak köşeler */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Yumuşak gölge */
-            transition: transform 0.3s;
+            background: var(--white); max-width: 500px; margin: 60px auto; padding: 40px;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s;
         }
         .form-box:hover { transform: translateY(-5px); }
 
@@ -69,54 +57,46 @@
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; font-size: 0.9rem; }
         
         input, select { 
-            width: 100%; 
-            padding: 12px 15px; 
-            border: 2px solid #eee; 
-            border-radius: 10px; 
-            box-sizing: border-box; 
-            font-size: 1rem;
-            transition: 0.3s;
-            outline: none;
+            width: 100%; padding: 12px 15px; border: 2px solid #eee; border-radius: 10px; 
+            box-sizing: border-box; font-size: 1rem; transition: 0.3s; outline: none;
         }
-        
-        /* Inputa tıklayınca renk değişimi */
         input:focus, select:focus { border-color: var(--primary); }
 
-        /* MODERN GÖNDER BUTONU */
         .submit-btn { 
-            width: 100%; 
-            padding: 15px; 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            font-size: 1.1rem; 
-            font-weight: bold;
-            cursor: pointer; 
-            border-radius: 50px; /* Hap Şekli */
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(10, 35, 81, 0.3);
+            width: 100%; padding: 15px; background: var(--primary); color: white; border: none; 
+            font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 50px; 
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(10, 35, 81, 0.3);
         }
         .submit-btn:hover { 
-            background: #153875; 
-            transform: translateY(-2px); 
-            box-shadow: 0 8px 20px rgba(10, 35, 81, 0.4);
+            background: #153875; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 81, 0.4);
         }
 
         /* MOBİL */
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
             .container { flex-wrap: wrap; }
+            
             nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                margin-top: 15px;
-                background: var(--primary);
-                padding-bottom: 20px;
+                /* GİZLİ DURUM */
+                display: flex;
+                flex-direction: column; 
+                width: 100%; text-align: center; margin-top: 15px;
+                background: var(--primary); padding-bottom: 20px;
+                
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                transition: all 0.5s ease;
+                pointer-events: none;
             }
-            nav ul.active { display: flex; animation: slideDown 0.3s ease; }
-            @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+            /* AÇIK DURUM */
+            nav ul.active { 
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
             
             nav ul li { margin: 10px 0; }
             .form-box { width: 90%; margin: 30px auto; padding: 25px; }
@@ -175,19 +155,37 @@
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.querySelector('.nav-container ul');
 
-        menuBtn.addEventListener('click', () => {
+        // Menü Aç/Kapa
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             navList.classList.toggle('active');
         });
 
+        // Boşluğa tıklayınca kapat
+        document.addEventListener('click', (e) => {
+            if (!navList.contains(e.target) && !menuBtn.contains(e.target)) {
+                navList.classList.remove('active');
+            }
+        });
+
+        // Linke tıklayınca GECİKMELİ kapat
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(() => {
+                    navList.classList.remove('active');
+                }, 550);
+            });
+        });
+
+        // Form İşlemleri
         document.getElementById("appointmentForm").addEventListener("submit", function(e){
             e.preventDefault();
-            // Basit bir animasyon ile uyarı verelim
             const btn = document.querySelector('.submit-btn');
             btn.innerHTML = "Kaydedildi ✓";
-            btn.style.background = "#28a745"; // Yeşil renk
+            btn.style.background = "#28a745";
             setTimeout(() => {
                 alert("Talebiniz alınmıştır! Sizi arayacağız.");
-                window.location.href = "index.html"; // Anasayfaya yönlendir
+                window.location.href = "index.html";
             }, 500);
         });
     </script>
