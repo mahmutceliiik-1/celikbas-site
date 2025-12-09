@@ -68,7 +68,7 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* İLETİŞİM (Yeni Eklenen Kısım) */
+        /* İLETİŞİM */
         .contact-wrapper { display: flex; flex-wrap: wrap; gap: 30px; }
         .info-card { flex: 1; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-width: 300px; }
         .map-card { flex: 1.5; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-height: 400px; min-width: 300px; }
@@ -86,18 +86,29 @@
         /* FOOTER */
         footer { background: #1a1a1a; color: #aaa; padding: 40px 0; text-align: center; border-top: 3px solid var(--accent); }
 
-        /* MOBİL */
+        /* MOBİL UYUMLULUK DÜZELTMELERİ */
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
             .logo h2 { font-size: 0.95rem; }
+            
+            /* Menü */
             .nav-container ul {
                 display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--primary);
                 padding: 20px 0; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: 0.5s; pointer-events: none;
             }
             .nav-container ul.active { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
             nav ul li { margin: 10px 0; text-align: center; }
+            
             #hero h1 { font-size: 2rem; }
+            
+            /* DÜZELTME: İletişim kutuları ve Harita */
             .contact-wrapper { flex-direction: column; }
+            .info-card { width: auto; margin-bottom: 20px; }
+            .map-card { 
+                width: 100%; 
+                height: 300px; /* Mobilde haritaya yükseklik ver */
+                min-height: 300px; 
+            }
         }
     </style>
 </head>
@@ -190,7 +201,7 @@
                 </div>
     
                 <div class="map-card">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d753.3390262678219!2d29.29732706964494!3d40.9517770982099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDU3JzA2LjQiTiAyOcKwMTcnNTIuNyJF!5e0!3m2!1str!2str!4v1765309332375!5m2!1str!2str" width="%100" height="%100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48108.23933390237!2d29.2319766!3d40.9751854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cad05da26b2301%3A0x89228498877e8e52!2sSultanbeyli%2C%20Istanbul!5e0!3m2!1sen!2str!4v1684321234567!5m2!1sen!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -218,10 +229,9 @@
                 navList.classList.remove('active'); 
         });
 
-        // Menü elemanına tıklayınca menüyü kapat (Sayfa içi kaydırma için önemli)
+        // Linke tıklayınca kapatma
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                // Mobilde hemen kapansın, delay'e gerek yok
                 navList.classList.remove('active');
             });
         });
