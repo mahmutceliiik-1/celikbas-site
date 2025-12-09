@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | Çelikbaş Pompa Enjektör Servisi</title>
+    <style>
+        :root {
+            --primary: #0a2351;
+            --accent: #ffcc00;
+            --text: #333;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; padding: 0; color: var(--text); background: var(--bg-light);
+            animation: fadeInPage 1s ease-out;
+        }
+
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+
+        /* HEADER & NAV */
+        header { background: var(--primary); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .container { width: 90%; max-width: 1200px; margin: auto; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo h2 { margin: 0; color: var(--white); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; }
+        
+        nav ul { list-style: none; display: flex; align-items: center; gap: 30px; padding: 0; margin: 0; }
+        nav a.nav-link { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; transition: var(--transition); }
+        nav a.nav-link:hover { color: var(--white); }
+        .btn-randevu { background: var(--accent); color: var(--primary); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: var(--transition); }
+        .btn-randevu:hover { transform: translateY(-3px); background: #e6b800; }
+
+        /* Sayfaya Özel Alanlar */
+        .page-header {
+            background: linear-gradient(rgba(10, 35, 81, 0.9), rgba(10, 35, 81, 0.9)), url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1');
+            background-size: cover; background-position: center; padding: 80px 0; text-align: center; color: white;
+        }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        .content-section { padding: 60px 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text h2 { color: var(--primary); font-size: 2rem; margin-bottom: 20px; }
+        .about-text p { line-height: 1.7; color: #555; margin-bottom: 20px; font-size: 1.05rem; }
+        .about-img img { width: 100%; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+
+        footer { background: #1a1a1a; color: #aaa; padding: 40px 0; text-align: center; margin-top: auto; border-top: 3px solid var(--accent); }
+
+        /* Mobil */
+        .menu-toggle { display: none; cursor: pointer; }
+        .bar { display: block; width: 26px; height: 3px; margin: 5px 0; background-color: white; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-container ul { 
+                display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; 
+                background: var(--primary); padding: 20px 0; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: 0.5s;
+            }
+            .nav-container ul.active { opacity: 1; visibility: visible; transform: translateY(0); }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            <div class="logo"><h2>ÇELİKBAŞ POMPA</h2></div>
+            <nav class="nav-container">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Anasayfa</a></li>
+                    <li><a href="index.html#hizmetler" class="nav-link">Hizmetler</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link" style="color:#fff;">Hakkımızda</a></li>
+                    <li><a href="index.html#iletisim" class="nav-link">İletişim</a></li>
+                    <li><a href="randevu.html" class="btn-randevu">Randevu Al</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>BİZ KİMİZ?</h1>
+            <p>Tecrübe, Güven ve Yüksek Teknoloji</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>20 Yıllık Sektör Tecrübesi</h2>
+                    <p>Çelikbaş Pompa Enjektör Servisi olarak, dizel yakıt sistemleri üzerine uzmanlaşmış kadromuzla İstanbul Sultanbeyli'de hizmet veriyoruz. Teknolojiyi yakından takip eden laboratuvar altyapımız ile Bosch, Delphi, Siemens ve Denso marka enjektörlerin test, tamir ve revizyon işlemlerini garantili olarak yapıyoruz.</p>
+                    <p>Müşteri memnuniyetini en üst düzeyde tutmak için şeffaf fiyat politikası ve hızlı çözüm süreçleri uyguluyoruz. Aracınızın performansını fabrika standartlarına döndürmek bizim işimiz.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Atölye Görünümü">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Çelikbaş Pompa Enjektör Servisi</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-container ul');
+        menuBtn.addEventListener('click', () => navList.classList.toggle('active'));
+    </script>
+</body>
+</html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çelikbaş Pompa Enjektör Servisi | Anasayfa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- MODERN DEĞİŞKENLER --- */
         :root {
             --primary: #0a2351;
             --accent: #ffcc00;
@@ -14,63 +14,32 @@
             --white: #ffffff;
             --transition: all 0.3s ease;
         }
-
         html { scroll-behavior: smooth; }
-        
         body { 
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-            margin: 0; padding: 0; color: var(--text); background: var(--bg-light);
+            font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; 
+            color: var(--text); background: var(--bg-light);
             animation: fadeInPage 1s ease-out;
         }
-
-        @keyframes fadeInPage {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* HEADER */
-        header { 
-            background: var(--primary); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: var(--transition);
-        }
-
+        header { background: var(--primary); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .container { width: 90%; max-width: 1200px; margin: auto; }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
-        /* LOGO */
-        .logo h2 { 
-            margin: 0; color: var(--white); 
-            font-size: 1.3rem; 
-            font-weight: 700; letter-spacing: 0.5px; 
-            text-transform: uppercase;
-        }
+        .logo h2 { margin: 0; color: var(--white); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
 
-        /* NAVİGASYON */
         nav ul { list-style: none; display: flex; align-items: center; gap: 30px; padding: 0; margin: 0; }
-        
-        nav a.nav-link { 
-            color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; position: relative; transition: var(--transition);
-        }
+        nav a.nav-link { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; position: relative; transition: var(--transition); }
         nav a.nav-link:hover { color: var(--white); }
-        nav a.nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
-            background-color: var(--accent); transition: width 0.3s ease;
-        }
+        nav a.nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
         nav a.nav-link:hover::after { width: 100%; }
 
-        .btn-randevu { 
-            background: var(--accent); color: var(--primary); padding: 10px 25px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
-            transition: var(--transition); display: inline-block;
-        }
+        .btn-randevu { background: var(--accent); color: var(--primary); padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3); transition: var(--transition); }
         .btn-randevu:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 204, 0, 0.5); background: #e6b800; }
 
-        /* HAMBURGER MENÜ */
         .menu-toggle { display: none; cursor: pointer; padding: 5px; }
-        .bar { 
-            display: block; width: 26px; height: 3px; margin: 5px 0; background-color: var(--white); 
-            border-radius: 3px; transition: 0.4s;
-        }
+        .bar { display: block; width: 26px; height: 3px; margin: 5px 0; background-color: var(--white); transition: 0.4s; }
 
         /* HERO */
         #hero {
@@ -79,57 +48,56 @@
             display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
         }
         #hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 800; }
-        #hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
         
-        .cta-btn { 
-            background: var(--accent); color: var(--primary); padding: 15px 45px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: var(--transition);
-        }
+        .cta-btn { background: var(--accent); color: var(--primary); padding: 15px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: var(--transition); }
         .cta-btn:hover { background: #fff; transform: scale(1.05); }
 
-        /* SECTION STYLES */
-        #hizmetler, #galeri { padding: 80px 0; }
+        /* GENEL SECTIONS */
+        #hizmetler, #galeri, #iletisim { padding: 80px 0; }
         .section-title { font-size: 2.2rem; margin-bottom: 40px; text-align: center; color: var(--primary); }
         
+        /* HİZMETLER */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card { 
-            background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: var(--transition); text-align: center;
-        }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .service-card { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; }
+        .service-card:hover { transform: translateY(-10px); }
         .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-
+        
+        /* GALERİ */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .gallery-item { border-radius: 12px; overflow: hidden; height: 250px; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
 
+        /* İLETİŞİM (Yeni Eklenen Kısım) */
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 30px; }
+        .info-card { flex: 1; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-width: 300px; }
+        .map-card { flex: 1.5; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-height: 400px; min-width: 300px; }
+        
+        .info-item { display: flex; align-items: start; margin-bottom: 30px; }
+        .info-item i { 
+            width: 50px; height: 50px; background: rgba(10,35,81,0.1); color: var(--primary); 
+            display: flex; align-items: center; justify-content: center; border-radius: 50%; 
+            font-size: 1.2rem; margin-right: 20px; flex-shrink: 0;
+        }
+        .info-item h4 { margin: 0 0 5px; color: var(--primary); font-size: 1.1rem; }
+        .info-item p { margin: 0; color: #666; line-height: 1.5; }
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        /* FOOTER */
         footer { background: #1a1a1a; color: #aaa; padding: 40px 0; text-align: center; border-top: 3px solid var(--accent); }
 
-        /* MOBİL UYUMLULUK */
+        /* MOBİL */
         @media screen and (max-width: 768px) {
             .menu-toggle { display: block; }
-            .logo h2 { font-size: 0.95rem; margin-left: auto; text-align: right; }
-            
+            .logo h2 { font-size: 0.95rem; }
             .nav-container ul {
-                display: flex; flex-direction: column; position: absolute;
-                top: 70px; left: 0; width: 100%; background: var(--primary);
-                padding: 20px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-                border-top: 1px solid rgba(255,255,255,0.1);
-                opacity: 0; visibility: hidden; transform: translateY(-20px);
-                transition: all 0.5s ease; pointer-events: none;
+                display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--primary);
+                padding: 20px 0; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: 0.5s; pointer-events: none;
             }
-
-            .nav-container ul.active { 
-                opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; 
-            }
-
-            nav ul li { width: 100%; text-align: center; margin: 10px 0; }
-            .btn-randevu { display: inline-block; width: 70%; margin-top: 10px; }
-            
+            .nav-container ul.active { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+            nav ul li { margin: 10px 0; text-align: center; }
             #hero h1 { font-size: 2rem; }
-            .cta-btn { width: 80%; box-sizing: border-box; }
-            .services-grid, .gallery-grid { grid-template-columns: 1fr; padding: 0 20px; }
+            .contact-wrapper { flex-direction: column; }
         }
     </style>
 </head>
@@ -137,22 +105,16 @@
 
     <header id="main-header">
         <div class="container nav-wrapper">
-            
             <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
-
-            <div class="logo">
-                <h2>ÇELİKBAŞ POMPA ENJEKTÖR SERVİSİ</h2>
-            </div>
-            
+            <div class="logo"><h2>ÇELİKBAŞ POMPA ENJEKTÖR SERVİSİ</h2></div>
             <nav class="nav-container">
                 <ul>
                     <li><a href="#hero" class="nav-link">Anasayfa</a></li>
                     <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
-                    <li><a href="#galeri" class="nav-link">Galeri</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="#iletisim" class="nav-link">İletişim</a></li>
                     <li><a href="randevu.html" class="btn-randevu">Randevu Al →</a></li>
                 </ul>
             </nav>
@@ -163,7 +125,7 @@
         <div class="container">
             <div style="animation: fadeInPage 1.2s ease-out;">
                 <h1>GÜVENİLİR DİZEL ÇÖZÜMLERİ</h1>
-                <p>Enjektör Testi, Pompa Tamiri ve Yedek Parça Hizmetlerinde Profesyonel Adres.</p>
+                <p style="font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9;">Enjektör Testi, Pompa Tamiri ve Yedek Parça Hizmetlerinde Profesyonel Adres.</p>
                 <a href="randevu.html" class="cta-btn">RANDEVU OLUŞTUR</a>
             </div>
         </div>
@@ -173,21 +135,9 @@
         <div class="container">
             <h2 class="section-title">Hizmetlerimiz</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <span class="icon">🔧</span>
-                    <h3>Enjektör Tamiri</h3>
-                    <p>Bosch, Delphi ve Siemens marka enjektörlerin bilgisayarlı test ve onarımı.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">⚙️</span>
-                    <h3>Pompa Revizyonu</h3>
-                    <p>Dizel pompalarınızın fabrika standartlarına göre ayarlanması ve bakımı.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">💻</span>
-                    <h3>Arıza Tespiti</h3>
-                    <p>Son teknoloji cihazlarla araç arızalarının nokta atışı tespiti.</p>
-                </div>
+                <div class="service-card"><span class="icon">🔧</span><h3>Enjektör Tamiri</h3><p>Bosch, Delphi ve Siemens marka enjektörlerin bilgisayarlı test ve onarımı.</p></div>
+                <div class="service-card"><span class="icon">⚙️</span><h3>Pompa Revizyonu</h3><p>Dizel pompalarınızın fabrika standartlarına göre ayarlanması ve bakımı.</p></div>
+                <div class="service-card"><span class="icon">💻</span><h3>Arıza Tespiti</h3><p>Son teknoloji cihazlarla araç arızalarının nokta atışı tespiti.</p></div>
             </div>
         </div>
     </section>
@@ -204,35 +154,75 @@
         </div>
     </section>
 
+    <section id="iletisim" style="background-color: #f1f3f5;">
+        <div class="container">
+            <h2 class="section-title">İletişim & Ulaşım</h2>
+            <div class="contact-wrapper">
+                <div class="info-card">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Sanayi Mahallesi, Örnek Caddesi No:12<br>Sultanbeyli / İstanbul</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+905551234567" style="color:#666; text-decoration:none;">0555 123 45 67</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-Posta</h4>
+                            <p>info@celikbaspompa.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Çalışma Saatleri</h4>
+                            <p>Pzt - Cmt: 08:30 - 19:00<br>Pazar: Kapalı</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="map-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d753.3390262678219!2d29.29732706964494!3d40.9517770982099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDU3JzA2LjQiTiAyOcKwMTcnNTIuNyJF!5e0!3m2!1str!2str!4v1765309332375!5m2!1str!2str" width="%100" height="%100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 Çelikbaş Pompa Enjektör Servisi - Sultanbeyli/İstanbul</p>
+            <p>© 2025 Çelikbaş Pompa Enjektör Servisi</p>
         </div>
     </footer>
 
     <script>
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.querySelector('.nav-container ul');
-
-        // Menü Aç/Kapa
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navList.classList.toggle('active');
+        
+        // Menü Açma Kapama
+        menuBtn.addEventListener('click', (e) => { 
+            e.stopPropagation(); 
+            navList.classList.toggle('active'); 
+        });
+        
+        // Boşluğa tıklayınca kapatma
+        document.addEventListener('click', (e) => { 
+            if (!navList.contains(e.target) && !menuBtn.contains(e.target)) 
+                navList.classList.remove('active'); 
         });
 
-        // Boşluğa tıklayınca kapat
-        document.addEventListener('click', (e) => {
-            if (!navList.contains(e.target) && !menuBtn.contains(e.target)) {
-                navList.classList.remove('active');
-            }
-        });
-
-        // Linke tıklayınca GECİKMELİ (500ms) kapat
+        // Menü elemanına tıklayınca menüyü kapat (Sayfa içi kaydırma için önemli)
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                setTimeout(() => {
-                    navList.classList.remove('active');
-                }, 500); // 0.5 Saniye Bekle
+                // Mobilde hemen kapansın, delay'e gerek yok
+                navList.classList.remove('active');
             });
         });
     </script>
