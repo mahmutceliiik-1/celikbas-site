@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            // BURAYA KENDİ PUBLIC KEY'İNİZİ YAZIN (EmailJS Panel -> Account -> Public Key)
+            
             emailjs.init("PHjPWj8tl9unncmEW");
         })();
     </script>
@@ -26,7 +26,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- MODERN PRELOADER TASARIMI --- */
+        /* PRELOADER */
         #preloader {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle, #ffffff 0%, #eef2f3 100%);
@@ -46,7 +46,7 @@
             animation: ringSpin 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
         }
 
-        /* Ortadaki Sabit/Nabız Atan İkon */
+        /* Ortadaki İkon */
         .loader-icon-box {
             position: relative;
             width: 80px; height: 80px;
@@ -237,14 +237,14 @@
     <script>
         const preloader = document.getElementById('preloader');
 
-        // GİRİŞ ANİMASYONU: Yükleme ekranı 0.8 saniye (800ms) sonra kaybolmaya başlar.
+        // GİRİŞ ANİMASYONU
         window.addEventListener('load', () => {
             // 800 ms bekle, sonra opacity düşürmeye başla
             setTimeout(() => {
                 preloader.classList.add('preloader-hidden');
             }, 800);
             
-            // 800ms + 600ms (geçiş efekti) = 1400ms sonra ekrandan tamamen kaldır
+            
             setTimeout(() => {
                 if(preloader.classList.contains('preloader-hidden')){
                     preloader.style.display = 'none';
@@ -252,7 +252,7 @@
             }, 1400);
         });
 
-        // ÇIKIŞ ANİMASYONU (Linklere Tıklanınca): Sayfa geçişi için 0.8 saniye (800ms) bekle.
+        // ÇIKIŞ ANİMASYONU
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -323,5 +323,6 @@
 </body>
 
 </html>
+
 
 
